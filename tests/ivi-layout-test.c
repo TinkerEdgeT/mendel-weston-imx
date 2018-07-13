@@ -252,7 +252,7 @@ controller_module_init(struct weston_compositor *compositor,
 
 	launcher->compositor = compositor;
 	launcher->layout_interface = iface;
-	snprintf(launcher->exe, sizeof launcher->exe, path);
+	snprintf(launcher->exe, sizeof launcher->exe, "%s", path);
 
 	if (wl_global_create(compositor->wl_display,
 			     &weston_test_runner_interface, 1,

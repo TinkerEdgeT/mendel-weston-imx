@@ -45,6 +45,8 @@
 #include <xf86drm.h>
 #include <xf86drmMode.h>
 #include <drm_fourcc.h>
+#include <drm_fourcc_imx.h>
+#include <libdrm/drm_mode_imx.h>
 
 #include <gbm.h>
 #include <libudev.h>

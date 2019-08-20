@@ -30,6 +30,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <drm_fourcc.h>
+#include <drm_fourcc_imx.h>
 
 #include "helpers.h"
 #include "wayland-util.h"

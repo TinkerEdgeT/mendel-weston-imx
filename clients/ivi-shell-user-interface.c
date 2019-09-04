@@ -1097,7 +1097,7 @@ hmi_homescreen_setting_create(void)
 
 	weston_config_section_get_string(
 		shellSection, "background-image", &setting->background.filePath,
-		DATADIR "/weston/background.png");
+		DATADIR "/weston/shutterstock_1340894804.jpg");
 
 	weston_config_section_get_uint(
 		shellSection, "background-id", &setting->background.id, 1001);

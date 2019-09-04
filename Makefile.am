@@ -948,7 +948,8 @@ dist_westondata_DATA +=				\
 	data/icon_ivi_flower.png                \
 	data/icon_ivi_simple-egl.png            \
 	data/icon_ivi_simple-shm.png            \
-	data/icon_ivi_smoke.png
+	data/icon_ivi_smoke.png			\
+	data/shutterstock_1340894804.jpg
 endif
 
 

@@ -19,7 +19,7 @@ application-layer-id=4000
 
 transition-duration=300
 
-background-image=@abs_top_srcdir@/data/shutterstock_1340894804.jpg
+background-image=@abs_top_srcdir@/data/Tinkerboard_wallpaper_T.jpg
 background-id=1001
 panel-image=@abs_top_srcdir@/data/panel.png
 panel-id=1002

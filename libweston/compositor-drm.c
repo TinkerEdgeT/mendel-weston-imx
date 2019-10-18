@@ -144,7 +144,6 @@ enum wdrm_plane_property {
 	WDRM_PLANE_FB_ID,
 	WDRM_PLANE_CRTC_ID,
 	WDRM_PLANE_IN_FORMATS,
-	WDRM_PLANE_IN_FENCE_FD,
 	WDRM_PLANE_DTRC_META,
 	WDRM_PLANE__COUNT
 };
@@ -188,7 +187,6 @@ static const struct drm_property_info plane_props[] = {
 	[WDRM_PLANE_FB_ID] = { .name = "FB_ID", },
 	[WDRM_PLANE_CRTC_ID] = { .name = "CRTC_ID", },
 	[WDRM_PLANE_IN_FORMATS] = { .name = "IN_FORMATS" },
-	[WDRM_PLANE_IN_FENCE_FD] = { .name = "IN_FENCE_FD" },
 	[WDRM_PLANE_DTRC_META] = { .name = "dtrc_table_ofs" },
 };
 
@@ -2595,10 +2593,7 @@ drm_output_apply_state_atomic(struct drm_output_state *state,
 	struct drm_mode *current_mode = to_drm_mode(output->base.current_mode);
 	struct drm_head *head;
 	int ret = 0;
-	int in_fence_fd = -1;
 
-	if(output->gbm_surface)
-		in_fence_fd = gbm_surface_get_in_fence_fd(output->gbm_surface);
 	if (state->dpms != output->state_cur->dpms)
 		*flags |= DRM_MODE_ATOMIC_ALLOW_MODESET;
 
@@ -2664,8 +2659,6 @@ drm_output_apply_state_atomic(struct drm_output_state *state,
 				      plane_state->dest_w);
 		ret |= plane_add_prop(req, plane, WDRM_PLANE_CRTC_H,
 				      plane_state->dest_h);
-		if (in_fence_fd > 0)
-			ret |= plane_add_prop(req, plane, WDRM_PLANE_IN_FENCE_FD, in_fence_fd);
 
 		if (plane_state->fb && plane_state->fb->dtrc_meta != plane->dtrc_meta
 		    && plane->type == WDRM_PLANE_TYPE_OVERLAY

@@ -3731,6 +3731,10 @@ drm_output_propose_state(struct weston_output *output_base,
 			struct weston_buffer *buffer = ev->surface->buffer_ref.buffer;
 			dmabuf = linux_dmabuf_buffer_get(buffer->resource);
 			if (dmabuf) {
+#if 1
+				/* Temporarily disable video -> overlay */
+				force_renderer = true;
+#else
 				if (dmabuf->attributes.format == DRM_FORMAT_NV12
 					|| dmabuf->attributes.format == DRM_FORMAT_P010
 					|| dmabuf->attributes.format == DRM_FORMAT_YUYV) {
@@ -3741,6 +3745,7 @@ drm_output_propose_state(struct weston_output *output_base,
 						force_renderer = true;
 				} else
 					force_renderer = true;
+#endif
 			}
 		}
 

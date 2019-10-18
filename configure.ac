@@ -233,9 +233,9 @@ if test x$enable_drm_compositor = xyes; then
   PKG_CHECK_MODULES(DRM_COMPOSITOR_MODIFIERS, [libdrm >= 2.4.71],
 		    [AC_DEFINE([HAVE_DRM_ADDFB2_MODIFIERS], 1, [libdrm supports modifiers])],
 		    [AC_MSG_WARN([libdrm does not support AddFB2 with modifiers])])
-  dnl PKG_CHECK_MODULES(DRM_COMPOSITOR_ATOMIC, [libdrm >= 2.4.78],
-	dnl 	    [AC_DEFINE([HAVE_DRM_ATOMIC], 1, [libdrm supports atomic API])],
-	dnl 	    [AC_MSG_WARN([libdrm does not support atomic modesetting, will omit that capability])])
+  PKG_CHECK_MODULES(DRM_COMPOSITOR_ATOMIC, [libdrm >= 2.4.78],
+		    [AC_DEFINE([HAVE_DRM_ATOMIC], 1, [libdrm supports atomic API])],
+		    [AC_MSG_WARN([libdrm does not support atomic modesetting, will omit that capability])])
   PKG_CHECK_MODULES(DRM_COMPOSITOR_FORMATS_BLOB, [libdrm >= 2.4.83],
 		    [AC_DEFINE([HAVE_DRM_FORMATS_BLOB], 1, [libdrm supports modifier advertisement])],
 		    [AC_MSG_WARN([libdrm does not support modifier advertisement])])

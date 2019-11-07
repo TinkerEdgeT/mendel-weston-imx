@@ -2451,6 +2451,8 @@ int main(int argc, char *argv[])
 	struct weston_seat *seat;
 	struct wet_compositor wet = { 0 };
 	int require_input;
+	sigset_t mask;
+
 	int32_t wait_for_debugger = 0;
 
 	const struct weston_option core_options[] = {
@@ -2521,6 +2523,14 @@ int main(int argc, char *argv[])
 
 	if (!signals[0] || !signals[1] || !signals[2] || !signals[3])
 		goto out_signals;
+
+	/* Xwayland uses SIGUSR1 for communicating with weston. Since some
+	   weston plugins may create additional threads, set up any necessary
+	   signal blocking early so that these threads can inherit the settings
+	   when created. */
+	sigemptyset(&mask);
+	sigaddset(&mask, SIGUSR1);
+	pthread_sigmask(SIG_BLOCK, &mask, NULL);
 
 	if (load_configuration(&config, noconfig, config_file) < 0)
 		goto out_signals;

@@ -19,7 +19,7 @@ application-layer-id=4000
 
 transition-duration=300
 
-background-image=@westondatadir@/background.png
+background-image=@westondatadir@/Tinkerboard_wallpaper_T.jpg
 background-id=1001
 panel-image=@westondatadir@/panel.png
 panel-id=1002

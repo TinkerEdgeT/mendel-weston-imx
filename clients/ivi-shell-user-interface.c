@@ -1097,7 +1097,7 @@ hmi_homescreen_setting_create(void)
 	weston_config_section_get_uint(
 		shellSection, "workspace-layer-id", &workspace_layer_id, 3000);
 
-	filename = file_name_with_datadir("background.png");
+	filename = file_name_with_datadir("Tinkerboard_wallpaper_T.jpg");
 	weston_config_section_get_string(
 		shellSection, "background-image", &setting->background.filePath,
 		filename);

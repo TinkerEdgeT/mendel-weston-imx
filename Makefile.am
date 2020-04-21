@@ -974,7 +974,8 @@ dist_westondata_DATA +=				\
 	data/icon_ivi_flower.png                \
 	data/icon_ivi_simple-egl.png            \
 	data/icon_ivi_simple-shm.png            \
-	data/icon_ivi_smoke.png
+	data/icon_ivi_smoke.png			\
+	data/Tinkerboard_wallpaper_T.jpg
 endif
 
 
